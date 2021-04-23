@@ -2,10 +2,20 @@ apiVersion: argoproj.io/v1alpha1
 kind: ArgoCD
 metadata:
   name: argocd-cluster
-  namespace: openshift-gitops
+  namespace: argocd
+  labels:
+    app: argocd
 spec:
+  dex:
+    image: quay.io/redhat-cop/dex
+    version: v2.22.0-openshift
+    openshiftOAuth: true
   rbac:
     defaultPolicy: "role:admin"
+    policy: |
+      g, system:cluster-admins, role:admin
+      g, admins, role:admin
+    scopes: "[groups]"
   server:
     route:
       enabled: true
