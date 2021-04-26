@@ -11,7 +11,7 @@ spec:
     server: https://kubernetes.default.svc
   project: cluster-config
   source:
-    path: manifests/cluster-config/roles-and-bindings/overlays/default
+    path: manifests/cluster-config/roles-and-bindings/base
     repoURL: https://github.com/pumphouse-p/openshift-cluster-config.git
     targetRevision: main
   syncPolicy:
