@@ -5,3 +5,4 @@ namespace: argocd
 
 bases:
   - ../../../manifests/argocd/apps/oauth/base
+  - ../../../manifests/argocd/apps/roles-and-bindings/base
