@@ -7,9 +7,7 @@ metadata:
     app: argocd
 spec:
   dex:
-    image: quay.io/redhat-cop/dex
-    version: v2.22.0-openshift
-    openshiftOAuth: true
+    openShiftOAuth: true
   rbac:
     defaultPolicy: "role:admin"
     policy: |
@@ -17,5 +15,9 @@ spec:
       g, admins, role:admin
     scopes: "[groups]"
   server:
+    insecure: true
     route:
       enabled: true
+      tls:
+        insecureEdgeTerminationPolicy: Redirect
+        termination: edge
