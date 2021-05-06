@@ -8,7 +8,7 @@ metadata:
 spec:
   destination:
     namespace: openshift-gitops
-   server: https://kubernetes.default.svc
+    server: https://kubernetes.default.svc
   project: cluster-config
   source:
     path: manifests/cluster-config/roles-and-bindings/base
