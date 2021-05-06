@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: cluster-config-manager
-  namespace: argocd
+  namespace: openshift-gitops
   labels:
     gitops.ownedBy: cluster-config
 spec:
@@ -16,5 +16,5 @@ spec:
     targetRevision: main
   syncPolicy:
     automated:
-      prune: false
-      selfHeal: false
+      prune: true
+      selfHeal: true
