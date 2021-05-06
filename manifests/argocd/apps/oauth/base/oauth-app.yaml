@@ -9,7 +9,7 @@ metadata:
     gitops.ownedBy: cluster-config
 spec:
   destination:
-    namespace: argocd
+    namespace: openshift-gitops
     server: https://kubernetes.default.svc
   project: cluster-config
   source:
@@ -18,5 +18,5 @@ spec:
     targetRevision: main
   syncPolicy:
     automated:
-      prune: false
-      selfHeal: false
+      prune: true
+      selfHeal: true
