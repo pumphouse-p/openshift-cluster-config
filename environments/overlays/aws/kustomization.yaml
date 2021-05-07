@@ -6,3 +6,4 @@ namespace: openshift-gitops
 bases:
   - ../../../manifests/argocd/apps/oauth/base
   - ../../../manifests/argocd/apps/roles-and-bindings/base
+  - ../../../manifests/argocd/apps/resource-locker/base
