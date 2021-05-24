@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: cluster-addons
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/pumphouse-p/openshift-cluster-config.git
+      revision: applicationsets
+      files:
+      - path: "clusters/**/config.json"
+  - git:
+      repoURL: https://github.com/pumphouse-p/openshift-cluster-config.git
+      revision: applicationsets
+      files:
+      - path: "manifests/cluster-config/*"
+  template:
+    metadata:
+      name: '{{cluster.name}}-cluster-addons'
+    spec:
+      project: cluster-config
+      source:
+        repoURL: https://github.com/pumphouse-p/openshift-cluster-config.git
+        targetRevision: applicationsets
+        path:
+      destination:
+        server: '{{cluster.address}}'
+        namespace: openshift-gitops
