@@ -16,7 +16,7 @@ spec:
       - path: "manifests/cluster-config/*"
   template:
     metadata:
-      name: cluster-addons
+      name: '{{path.basename}}-{{cluster}}'
     spec:
       project: cluster-config
       source:
