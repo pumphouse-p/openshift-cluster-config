@@ -13,7 +13,7 @@ spec:
       repoURL: https://github.com/pumphouse-p/openshift-cluster-config.git
       revision: applicationsets
       files:
-      - path: "manifests/cluster-config/**"
+      - path: "manifests/cluster-config/*"
   template:
     metadata:
       name: cluster-addons
