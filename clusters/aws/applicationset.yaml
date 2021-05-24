@@ -5,17 +5,15 @@ metadata:
   namespace: openshift-gitops
 spec:
   generators:
-  - matrix:
-    generators:
-    - list:
-        elements:
-        - cluster: in-cluster
-          url: https://kubernetes.default.svc
-    - git:
-        repoURL: https://github.com/pumphouse-p/openshift-cluster-config.git
-        revision: applicationsets
-        files:
-        - path: "manifests/cluster-config/**"
+  - list:
+      elements:
+      - cluster: in-cluster
+        url: https://kubernetes.default.svc
+  - git:
+      repoURL: https://github.com/pumphouse-p/openshift-cluster-config.git
+      revision: applicationsets
+      files:
+      - path: "manifests/cluster-config/**"
   template:
     metadata:
       name: cluster-addons
