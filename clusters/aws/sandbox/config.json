@@ -1,7 +1,0 @@
-{
-    "cluster:" {
-        "address": "https://kubernetes.default.svc",
-        "name": "in-cluster",
-        "overlay": "aws"
-    }
-}
