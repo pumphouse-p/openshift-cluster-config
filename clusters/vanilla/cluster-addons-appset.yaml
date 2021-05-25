@@ -23,6 +23,10 @@ spec:
       name: '{{path.basename}}'
     spec:
       project: cluster-addons
+      syncPolicy:
+        automated:
+          prune: false
+          selfHeal: true
       source:
         repoURL: https://github.com/pumphouse-p/openshift-cluster-config.git
         targetRevision: applicationsets
