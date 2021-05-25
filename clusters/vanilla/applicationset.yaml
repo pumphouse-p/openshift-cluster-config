@@ -9,7 +9,15 @@ spec:
       repoURL: https://github.com/pumphouse-p/openshift-cluster-config.git
       revision: applicationsets
       directories:
-      - path: "manifests/cluster-config/**/vanilla"
+      - path: "manifests/cluster-config/*"
+      template:
+        metadata: {}
+        spec:
+          destination: {}
+          project: cluster-config
+          source:
+            repoURL: https://github.com/pumphouse-p/openshift-cluster-config.git
+            path: "{{path}}/overlays/vanilla"
   template:
     metadata:
       name: '{{path.basename}}'
