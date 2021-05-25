@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: cluster-addons
+  namespace: openshift-gitops
+spec:
+  description: "Project containing cluster addon applications"
+  clusterResourceWhitelist:
+    - group: "*"
+      kind: "*"
+  destinations:
+    - namespace: "*"
+      server: "*"
+  sourceRepos:
+    - "*"

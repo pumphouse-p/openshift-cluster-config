@@ -5,3 +5,4 @@ resources:
   - argocd.yaml
   - argocd-clusterrolebinding.yaml
   - argocd-cluster-config-project.yaml
+  - argocd-cluster-addons-project.yaml

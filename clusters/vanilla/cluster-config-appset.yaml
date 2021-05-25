@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: cluster-config
+  namespace: openshift-gitops
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/pumphouse-p/openshift-cluster-config.git
+      revision: applicationsets
+      directories:
+      - path: "manifests/cluster-config/*"
+      template:
+        metadata: {}
+        spec:
+          destination: {}
+          project: cluster-config
+          source:
+            repoURL: https://github.com/pumphouse-p/openshift-cluster-config.git
+            path: "{{path}}/overlays/vanilla"
+  template:
+    metadata:
+      name: '{{path.basename}}'
+    spec:
+      project: cluster-config
+      source:
+        repoURL: https://github.com/pumphouse-p/openshift-cluster-config.git
+        targetRevision: applicationsets
+        path: '{{path}}'
+      destination:
+        server: 'https://kubernetes.default.svc'
+        namespace: openshift-gitops
